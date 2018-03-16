@@ -1,0 +1,14 @@
+<labels>
+  <label>
+    <key>@SYS01</key>
+    <text>404 - Not found</text>
+    <comment></comment>
+  </label>
+  <!-- TEMPLATE
+  <label>
+    <key></key>
+    <text></text>
+    <comment></comment>
+  </label>
+  -->
+</labels>
