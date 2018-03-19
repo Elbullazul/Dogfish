@@ -1,3 +1,5 @@
+<img src="https://github.com/Elbullazul/Dogfish/blob/dev/Resources/public/img/logo.png" width="48">
+
 # Dogfish
 Online school management system
 
