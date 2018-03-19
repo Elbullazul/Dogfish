@@ -1,0 +1,41 @@
+<!--
+  Naming convention:
+  - @SYSXX: System text, used for events, errors or exceptions
+  - @UIXX: Display labels for text in webpages
+-->
+
+<labels>
+  <label>
+    <key>@SYS01</key>
+    <text>404 - Page introuvable</text>
+    <comment></comment>
+  </label>
+  <label>
+    <key>@SYS02</key>
+    <text>Impossible d'instantier un nouveau dépôt. Le dépot n'existe pas</text>
+    <comment></comment>
+  </label>
+  <!-- UI labels -->
+  <label>
+    <key>@UI01</key>
+    <text>Dogfish - Système de gestion scolaire</text>
+    <comment></comment>
+  </label>
+  <label>
+    <key>@UI02</key>
+    <text>Dogfish Systems (c) 2018</text>
+    <comment></comment>
+  </label>
+  <label>
+    <key>@UI03</key>
+    <text>Se connecter</text>
+    <comment></comment>
+  </label>
+  <!-- TEMPLATE
+  <label>
+    <key></key>
+    <text></text>
+    <comment></comment>
+  </label>
+  -->
+</labels>

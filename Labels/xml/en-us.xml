@@ -1,7 +1,34 @@
+<!--
+  Naming convention:
+  - @SYSXX: System text, used for events, errors or exceptions
+  - @UIXX: Display labels for text in webpages
+-->
+
 <labels>
   <label>
     <key>@SYS01</key>
     <text>404 - Not found</text>
+    <comment></comment>
+  </label>
+  <label>
+    <key>@SYS02</key>
+    <text>Could not create repository. Repository does not exist</text>
+    <comment></comment>
+  </label>
+  <!-- UI labels -->
+  <label>
+    <key>@UI01</key>
+    <text>Dogfish school management system</text>
+    <comment></comment>
+  </label>
+  <label>
+    <key>@UI02</key>
+    <text>Dogfish Systems (c) 2018</text>
+    <comment></comment>
+  </label>
+  <label>
+    <key>@UI03</key>
+    <text>Log in</text>
     <comment></comment>
   </label>
   <!-- TEMPLATE

@@ -1,0 +1,42 @@
+.navbar,
+.navbar-default {
+  background-color: #496ba0;
+  color: #fff;
+}
+
+.navbar .ws-title,
+.navbar .dropdown-toggle a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a.dropdown-item,
+a.dropdown-item:hover,
+a.dropdown-item:focus,
+a.dropdown-item:active {
+  color: black;
+}
+
+footer {
+  margin-top: 10px;
+  background-color: #496ba0;
+  color: #fff;
+  padding: 25px;
+}
+
+/* right-align menu on navbar */
+.dropdown-menu-right {
+    right: 0;
+    left: auto;
+}
+
+/* annoying text select on dropdown div */
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}

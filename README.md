@@ -2,12 +2,11 @@
 Online school management system
 
 ### Structure
-- Classes: System classes & master class
-- Connectors: DataBase connection objects
-- Contracts: Parameters neeeded for report creation
-- Controllers: Webpages managers for different types of webpages
-- DataObjects: Objects optimized for database storage
-- Objects: Recurrent classes used as objects in service
-- Templates: View Templates
-- Views: Webpages ready for controllers to include and display
-- Labels: Text files for multi-language support
+- Views: Raw page content with conditions. Includes template and master page file
+- Labels: text files for translation & multilanguage support
+- Controllers: Page managers according to related Models
+- Models: Objects used for rendering & data processing
+- Global: misc. classes & utils
+- Core: processes calls between Models & repositories
+- Repositories: access points to the Database
+- Entities: virtualized tables from the Database

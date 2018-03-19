@@ -1,5 +1,8 @@
 <?php
 
+// usings
+use utils\path_util;
+
 class core_controller {
 
   // location variables
@@ -34,16 +37,31 @@ class core_controller {
     // include security module here
 
     // include master template
-    include_once utils::build_path($this->TEMPLATES, 'master.php');
+    include_once path_util::build($this->TEMPLATES, 'master.php');
   }
 
   function gen_repository($_repository) {
-    
+    // new repository if exists, else return error
+    if (file_exists(path_util::build($this->REPOSITORIES, $_repository.'_repository.php'))) {
+      $repo = $_repository.'_repository.php';
+      return new $repo();
+    } else {
+      throw new \Exception(label_manager::get_label('@SYS02'), 1);
+    }
   }
 
   function gen_error_view($_error) {
     // generate error page with custom error message
-    require_once(utils::build_path($this->VIEWS, 'error.php'));
+    require_once(path_util::build($this->VIEWS, 'error.php'));
+  }
+
+  function resource($_path) {
+    echo $_path;
+    return 'Resources/'.$_path;
+  }
+
+  function name() {
+    return 'core';
   }
 }
 
