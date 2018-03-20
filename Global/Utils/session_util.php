@@ -12,7 +12,12 @@ abstract class session_util {
   }
 
   static function destroy($_key) {
-    isset($_SESSION[$_key]) ? unset($_SESSION[$_key]) : return false;
+    if (isset($_SESSION[$_key])) {
+      session_util::set($_key, NULL);
+      unset($_SESSION[$_key]);
+    } else {
+     return false;
+   }
   }
 }
 

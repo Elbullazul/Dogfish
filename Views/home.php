@@ -2,7 +2,9 @@
   <h1>Hello world!</h1>
   <p>A simple but powerful school management system based on open-source technology</p>
 </div>
-<div class="container-fluid text-center ">
-  <p>Dogfish is a free school management system ready to be deployed for your educational system.</p>
-  <a href="<?= link_manager::get_link('login'); ?>"><button class="btn"><?= label_manager::get_label("@UI03"); ?></button></a>
+<div class="container-fluid ">
+  <div class="container-fluid text-center">
+    <p>Dogfish is a free school management system ready to be deployed for your educational system.</p>
+    <button class="btn"><a href="<?= link_manager::get_link('login'); ?>"><?= label_manager::get_label("@UI03"); ?></a></button>
+  </div>
 </div>

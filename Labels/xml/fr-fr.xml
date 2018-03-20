@@ -2,6 +2,13 @@
   Naming convention:
   - @SYSXX: System text, used for events, errors or exceptions
   - @UIXX: Display labels for text in webpages
+
+  TEMPLATE
+  <label>
+    <key></key>
+    <text></text>
+    <comment></comment>
+  </label>
 -->
 
 <labels>
@@ -31,11 +38,44 @@
     <text>Se connecter</text>
     <comment></comment>
   </label>
-  <!-- TEMPLATE
   <label>
-    <key></key>
-    <text></text>
+    <key>@UI04</key>
+    <text>Adresse courriel</text>
     <comment></comment>
   </label>
-  -->
+  <label>
+    <key>@UI05</key>
+    <text>Mot de passe</text>
+    <comment></comment>
+  </label>
+  <label>
+    <key>@UI06</key>
+    <text>Se souvenir de moi</text>
+    <comment></comment>
+  </label>
+  <label>
+    <key>@UI07</key>
+    <text>Connexion</text>
+    <comment></comment>
+  </label>
+  <label>
+    <key>@UI08</key>
+    <text>Nom d'utilisateur</text>
+    <comment></comment>
+  </label>
+  <label>
+    <key>@UI09</key>
+    <text>Activité</text>
+    <comment></comment>
+  </label>
+  <label>
+    <key>@UI10</key>
+    <text>Profil</text>
+    <comment></comment>
+  </label>
+  <label>
+    <key>@UI11</key>
+    <text>Déconnexion</text>
+    <comment></comment>
+  </label>
 </labels>

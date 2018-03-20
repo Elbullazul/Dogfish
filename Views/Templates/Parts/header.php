@@ -1,7 +1,7 @@
 <?php use utils\path_util; ?>
 
 <div class='navbar navbar-default'>
-  <a class="ws-title" href="<?= link_manager::get_link('login'); ?>">
+  <a class="ws-title" href="<?= link_manager::get_home_link(); ?>">
     <img src="<?= path_util::resource('public/img/logo.svg'); ?>" height="24px"/>
     <?= label_manager::get_label('@UI01'); ?>
   </a>
@@ -12,6 +12,6 @@
     </div>
     <div class="dropdown-menu dropdown-menu-right text-left">
       <?php include_once(path_util::build('Views/Templates/Parts', 'user-menu.php')); ?>
-     </div>
-   </div>
+    </div>
+  </div>
 </div>

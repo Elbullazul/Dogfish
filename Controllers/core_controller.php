@@ -16,7 +16,6 @@ class core_controller {
   public $GLOBAL;
 
   protected $views = array();
-  protected $model_factory = NULL;
 
   function __construct() {
     $this->ROOT = __DIR__ . '\..';
@@ -27,14 +26,10 @@ class core_controller {
     $this->TEMPLATES = __DIR__ . '\..\Views\Templates';
     $this->ENTITIES = __DIR__ . '\..\'Entities';
     $this->GLOBAL = __DIR__ . '\..\Global';
-
-    $this->model_factory = new model_factory();
   }
 
   function gen_view($_view) {
     $path = 'Views/'.$_view.'.php';
-
-    // include security module here
 
     // include master template
     include_once path_util::build($this->TEMPLATES, 'master.php');
@@ -62,6 +57,13 @@ class core_controller {
 
   function name() {
     return 'core';
+  }
+
+  function redirect($_view) {
+    ob_start();
+    ob_end_clean();
+
+    header("Location: ".link_manager::get_link($_view));
   }
 }
 

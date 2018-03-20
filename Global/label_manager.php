@@ -2,7 +2,7 @@
 
 abstract class label_manager {
 
-  static function get_label($_label, $_locale = 'en-us') {
+  static function get_label($_label, $_locale = 'fr-fr') {
 
     $text = '';
     $file = 'Labels/xml/'.$_locale.'.xml';

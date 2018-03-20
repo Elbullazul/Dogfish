@@ -8,6 +8,8 @@ class application {
 
   function __construct() {
 
+    session_start();
+
     // setup application language
     self::$locale = label_manager::get_locale();
 
