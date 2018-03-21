@@ -13,12 +13,6 @@ class user_controller extends core_controller {
 
   // allowed actions for the controller
   function dashboard() {
-    $u = new users();
-
-    foreach ($u->get_data_fields() as $field) {
-      echo $field;
-    }
-
     $this->gen_view('dashboard');
   }
 
