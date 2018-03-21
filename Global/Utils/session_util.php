@@ -19,6 +19,14 @@ abstract class session_util {
      return false;
    }
   }
+
+  static function is_set($_key) {
+    if (session_util::get($_key) != "") {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
 
 ?>

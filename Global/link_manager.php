@@ -15,7 +15,7 @@ abstract class link_manager {
         $url='/user/profile';
         break;
       case 'authenticate':
-        $url='/user/authenticate';
+        $url='/public/authenticate';
         break;
       case 'activity':
         $url='/user/activity';
@@ -24,7 +24,10 @@ abstract class link_manager {
         $url='/user/dashboard';
         break;
       case 'logout':
-        $url='/user/logout';
+        $url='/public/logout';
+        break;
+      case 'error':
+        $url='/public/error';
         break;
       default:
         $url='/public/home';
@@ -32,13 +35,6 @@ abstract class link_manager {
     }
 
     return $url;
-  }
-  static function get_home_link() {
-    if (session_util::get('user') != "") {
-      return link_manager::get_link('dashboard');
-    } else {
-      return link_manager::get_link('home');
-    }
   }
 }
 

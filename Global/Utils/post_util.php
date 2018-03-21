@@ -10,6 +10,14 @@ abstract class post_util {
   static function get($_key) {
     return isset($_POST[$_key]) ? htmlentities($_POST[$_key]) : "" ;
   }
+
+  static function is_set($_key) {
+    if (post_util::get($_key) != "") {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
 
 ?>

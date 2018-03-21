@@ -1,12 +1,22 @@
 <?php
 
-class user {
+namespace Models;
+
+class users {
   private $id;
   private $name;
   private $email;
   private $picture; // optional
   private $username;
   private $password;
+
+  function __construct($_id = "", $_name = "", $_email = "", $_username = "", $_password = "") {
+    $this->id = $_id;
+    $this->name = $_name;
+    $this->email = $_email;
+    $this->username = $_username;
+    $this->password = $_password;
+  }
 
   function set_id($_id) {
     $this->id = $_id;

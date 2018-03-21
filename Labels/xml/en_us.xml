@@ -78,4 +78,29 @@
     <text>Log out</text>
     <comment></comment>
   </label>
+  <label>
+    <key>@UI12</key>
+    <text>Overview</text>
+    <comment>Sidebar label</comment>
+  </label>
+  <label>
+    <key>@UI13</key>
+    <text>Grade Reports</text>
+    <comment>Sidebar label</comment>
+  </label>
+  <label>
+    <key>@UI14</key>
+    <text>Grades</text>
+    <comment>Sidebar label</comment>
+  </label>
+  <label>
+    <key>@UI15</key>
+    <text>Schedule</text>
+    <comment>Sidebar label</comment>
+  </label>
+  <label>
+    <key>@UI16</key>
+    <text>Calendar</text>
+    <comment>Sidebar label</comment>
+  </label>
 </labels>

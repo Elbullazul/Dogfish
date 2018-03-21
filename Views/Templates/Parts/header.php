@@ -1,17 +1,20 @@
 <?php use utils\path_util; ?>
 
 <div class='navbar navbar-default'>
-  <a class="ws-title" href="<?= link_manager::get_home_link(); ?>">
+  <a class="ws-title"
+  <?php if ($this->is_user_connected()) {
+    echo 'href="'.link_manager::get_link('dashboard').'"';}?>
+  > <!-- DO NOT remove: close the a node -->
     <img src="<?= path_util::resource('public/img/logo.svg'); ?>" height="24px"/>
     <?= label_manager::get_label('@UI01'); ?>
   </a>
-<!-- <i class="fas fa-user"></i> -->
   <div class="btn-group">
-    <div class="dropdown-toggle noselect" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <i class="fas fa-user"></i>
-    </div>
-    <div class="dropdown-menu dropdown-menu-right text-left">
-      <?php include_once(path_util::build('Views/Templates/Parts', 'user-menu.php')); ?>
-    </div>
+  <?php
+    use utils\session_util;
+    if ($this->is_user_connected()) {
+      include_once(path_util::build('Views/Templates/Parts', 'user-menu.php'));
+    } else { ?>
+      <a href="<?= link_manager::get_link('login'); ?>"><i class="fas fa-sign-in-alt"></i></a>
+  <?php } ?>
   </div>
 </div>

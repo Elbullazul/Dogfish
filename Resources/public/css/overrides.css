@@ -14,7 +14,7 @@ body {
 }
 
 .navbar .ws-title,
-.navbar .dropdown-toggle a {
+.navbar .btn-group a {
   color: #fff;
   text-decoration: none;
 }
@@ -23,7 +23,7 @@ a.dropdown-item,
 a.dropdown-item:hover,
 a.dropdown-item:focus,
 a.dropdown-item:active {
-  color: black;
+  color: black !important;
 }
 
 /*

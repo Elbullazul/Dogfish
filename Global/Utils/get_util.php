@@ -10,6 +10,14 @@ abstract class get_util {
   static function get($_key) {
     return isset($_GET[$_key]) ? htmlentities($_GET[$_key]) : "" ;
   }
+
+  static function is_set($_key) {
+    if (get_util::get($_key) != "") {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
 
 ?>

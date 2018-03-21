@@ -2,8 +2,9 @@
 
 // usings
 use utils\path_util;
+use utils\session_util;
 
-class core_controller {
+abstract class core_controller {
 
   // location variables
   public $ROOT;
@@ -29,6 +30,7 @@ class core_controller {
   }
 
   function gen_view($_view) {
+    // path for master import
     $path = 'Views/'.$_view.'.php';
 
     // include master template
@@ -41,7 +43,7 @@ class core_controller {
       $repo = $_repository.'_repository.php';
       return new $repo();
     } else {
-      throw new \Exception(label_manager::get_label('@SYS02'), 1);
+      throw new Exception(label_manager::get_label('@SYS02'), 1);
     }
   }
 
@@ -51,20 +53,38 @@ class core_controller {
   }
 
   function resource($_path) {
-    echo $_path;
+    // load page resources from source path
     return 'Resources/'.$_path;
   }
 
   function name() {
+    // identify controllers
     return 'core';
   }
 
   function redirect($_view) {
+    // clear current webpage
     ob_start();
     ob_end_clean();
 
+    // go to
     header("Location: ".link_manager::get_link($_view));
   }
+
+  function invoke($action, $args = array()) {
+    if (method_exists($this, $action)) {
+      call_user_func_array(array($this, $action), array($args));
+    } else {
+      //throw new Exception(label_manager::get_label('@SYS03'));
+      $this->gen_error_view(label_manager::get_label('@SYS01'));
+    }
+  }
+
+  function is_user_connected() {
+    return session_util::is_set('user');
+  }
+
+  // abstract function actions();
 }
 
 ?>
