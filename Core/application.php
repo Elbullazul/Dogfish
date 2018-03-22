@@ -5,8 +5,6 @@ use utils\url_util;
 use utils\get_util;
 
 class application {
-  public static $locale = 'en-us';
-
   function __construct() {
 
     session_start();

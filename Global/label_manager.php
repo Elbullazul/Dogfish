@@ -1,11 +1,11 @@
 <?php
 
 abstract class label_manager {
-  static $locale = 'fr_fr';
+  static $locale = 'en_us';
 
   static function get_label($_label) {
 
-    $text = '';
+    $text = "";
     $file = 'Labels/xml/'.self::$locale.'.xml';
     $xml = simplexml_load_file($file);
 
@@ -16,9 +16,11 @@ abstract class label_manager {
       }
     }
 
+    // return empty if not found
     return $text;
   }
 
+  // get user browsing language
   static function get_locale() {
     return strtolower(locale_accept_from_http($_SERVER['HTTP_ACCEPT_LANGUAGE']));
   }

@@ -15,6 +15,7 @@ if (isset($_user) && isset($_auth)) {
 
   if (true) {
     session_util::set('user', $_user);
+    session_util::set('user-privileges', 1);
     $this->redirect('dashboard');
   }
 }

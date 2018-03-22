@@ -1,6 +1,6 @@
 <?php
 
-class grades_controller extends core_controller {
+class grade_controller extends core_controller {
 
   function name() {
     return 'grades';

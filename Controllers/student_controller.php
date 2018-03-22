@@ -1,6 +1,6 @@
 <?php
 
-class students_controller extends core_controller {
+class student_controller extends core_controller {
 
   function name() {
     return 'students';

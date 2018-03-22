@@ -1,4 +1,3 @@
-<!-- usings -->
 <?php use utils\path_util;?>
 
 <!DOCTYPE html>
@@ -25,8 +24,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-    <?php include_once 'Parts/header.php'?>
-    <?php include_once $path; ?>  <!-- from controller -->
-    <?php include_once 'Parts/footer.php'?>
+    <?php include_once path_util::build($this->PARTS,'header.php');?>
+    <?php include_once $path; ?>
+    <?php include_once path_util::build($this->PARTS,'footer.php');?>
   </body>
 </html>

@@ -71,12 +71,12 @@
   <label>
     <key>@UI10</key>
     <text>Profile</text>
-    <comment></comment>
+    <comment>User menu</comment>
   </label>
   <label>
     <key>@UI11</key>
     <text>Log out</text>
-    <comment></comment>
+    <comment>User menu</comment>
   </label>
   <label>
     <key>@UI12</key>
@@ -102,5 +102,10 @@
     <key>@UI16</key>
     <text>Calendar</text>
     <comment>Sidebar label</comment>
+  </label>
+  <label>
+    <key>@UI17</key>
+    <text>Settings</text>
+    <comment>User menu</comment>
   </label>
 </labels>

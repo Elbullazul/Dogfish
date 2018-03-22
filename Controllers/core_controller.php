@@ -2,6 +2,7 @@
 
 // usings
 use utils\path_util;
+use utils\post_util;
 use utils\session_util;
 
 abstract class core_controller {
@@ -15,29 +16,53 @@ abstract class core_controller {
   public $TEMPLATES;
   public $ENTITIES;
   public $GLOBAL;
+  public $PARTS;
+  public $RESOURCES;
 
-  protected $views = array();
+  // access levels determine whether a user can see the view or not
+  protected $ACCESS_LEVEL;
 
   function __construct() {
-    $this->ROOT = __DIR__ . '\..';
-    $this->VIEWS = __DIR__ .'\..\Views';
-    $this->CONTROLLERS = __DIR__ . '\..\Controllers';
-    $this->MODELS = __DIR__ . '\..\Models';
-    $this->REPOSITORIES = __DIR__ . '\..\Repositories';
-    $this->TEMPLATES = __DIR__ . '\..\Views\Templates';
-    $this->ENTITIES = __DIR__ . '\..\'Entities';
-    $this->GLOBAL = __DIR__ . '\..\Global';
+    $this->ROOT = __DIR__. '\..';
+    $this->VIEWS = __DIR__.'\..\Views';
+    $this->CONTROLLERS = __DIR__. '\..\Controllers';
+    $this->MODELS = __DIR__. '\..\Models';
+    $this->REPOSITORIES = __DIR__. '\..\Repositories';
+    $this->TEMPLATES = __DIR__. '\..\Views\Templates';
+    $this->ENTITIES = __DIR__. '\..\'Entities';
+    $this->GLOBAL = __DIR__. '\..\Global';
+    $this->PARTS = __DIR__.'\..\Views\Templates\Parts';
+    $this->RESOURCES = __DIR__.'\..\Resources';
+
+    $this->set_access_level();
   }
 
-  function gen_view($_view) {
+  abstract protected function set_access_level();
+
+  function get_access_level() {
+    return $this->ACCESS_LEVEL;
+  }
+
+  protected function gen_view($_view) {
     // path for master import
-    $path = 'Views/'.$_view.'.php';
+    $path = path_util::build($this->VIEWS, $_view.'.php');
 
-    // include master template
-    include_once path_util::build($this->TEMPLATES, 'master.php');
+    // check user access rights
+    switch (security_service::validate_access($this)) {
+      case security_service::$NO_AUTH_REQUIRED:
+      case security_service::$AUTH_SUCCESSFUL:
+        include_once path_util::build($this->TEMPLATES, 'master.php');  // include master template
+        break;
+      case security_service::$USER_NOT_CONNECTED:
+        $this->redirect('login');
+        break;
+      case security_service::$INSUFFICIENT_PRIVILEGES:
+        $this->redirect('dashboard');
+        break;
+    }
   }
 
-  function gen_repository($_repository) {
+  protected function gen_repository($_repository) {
     // new repository if exists, else return error
     if (file_exists(path_util::build($this->REPOSITORIES, $_repository.'_repository.php'))) {
       $repo = $_repository.'_repository.php';
@@ -47,22 +72,17 @@ abstract class core_controller {
     }
   }
 
-  function gen_error_view($_error) {
+  protected function gen_error_view($_error) {
     // generate error page with custom error message
     require_once(path_util::build($this->VIEWS, 'error.php'));
   }
 
   function resource($_path) {
     // load page resources from source path
-    return 'Resources/'.$_path;
+    return path_util::build($this->RESOURCES, $_path);
   }
 
-  function name() {
-    // identify controllers
-    return 'core';
-  }
-
-  function redirect($_view) {
+  protected function redirect($_view) {
     // clear current webpage
     ob_start();
     ob_end_clean();
@@ -84,7 +104,11 @@ abstract class core_controller {
     return session_util::is_set('user');
   }
 
-  // abstract function actions();
+  function get_user_privileges() {
+    return session_util::get('user-privileges');
+  }
+
+  abstract function name();
 }
 
 ?>

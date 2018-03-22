@@ -103,4 +103,9 @@
     <text>Calendrier</text>
     <comment>Sidebar label</comment>
   </label>
+  <label>
+    <key>@UI17</key>
+    <text>Configuration</text>
+    <comment>User menu</comment>
+  </label>
 </labels>

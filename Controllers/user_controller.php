@@ -7,6 +7,10 @@ use utils\session_util;
 use models\users;
 
 class user_controller extends core_controller {
+  function set_access_level() {
+    $this->ACCESS_LEVEL = 1;
+  }
+
   function name() {
     return 'user';
   }
@@ -22,6 +26,10 @@ class user_controller extends core_controller {
 
   function profile() {
     $this->gen_view('profile');
+  }
+
+  function settings() {
+    $this->gen_view('settings');
   }
 
 }

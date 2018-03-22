@@ -1,6 +1,12 @@
 <?php
 
+use models\user;
+
 class public_controller extends core_controller {
+  protected function set_access_level() {
+    $this->ACCESS_LEVEL = 0;
+  }
+
   function name() {
     return 'public';
   }
