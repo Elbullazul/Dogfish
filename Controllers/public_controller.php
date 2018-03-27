@@ -1,32 +1,55 @@
 <?php
 
-use models\user;
+class public_controller extends core_controller
+{
+    protected function set_access_policies()
+    {
+        $this->ACCESS_LEVEL = 0;
+    }
 
-class public_controller extends core_controller {
-  protected function set_access_level() {
-    $this->ACCESS_LEVEL = 0;
-  }
+    function actions()
+    {
+        return array(
+            'home',
+            'login',
+            'logout',
+            'authenticate'
+        );
+    }
 
-  function name() {
-    return 'public';
-  }
+    function main_view()
+    {
+        $this->home();
+    }
 
-  // allowed actions for the controller
-  function home() {
-    $this->gen_view('home');
-  }
+    function name()
+    {
+        return 'public';
+    }
 
-  function login() {
-    $this->gen_view('login');
-  }
+    // allowed actions for the controller
+    function home()
+    {
+        $this->gen_view('home');
+    }
 
-  function logout() {
-    $this->gen_view('logout');
-  }
+    function login()
+    {
+        if ($this->is_user_connected())
+            $this->redirect('dashboard');
+        else
+            $this->gen_view('login');
+    }
 
-  function authenticate() {
-    $this->gen_view('authenticate');
-  }
+    function logout()
+    {
+        $this->gen_view('logout');
+    }
+
+    function authenticate()
+    {
+        $this->gen_view('authenticate');
+    }
 }
 
- ?>
+?>

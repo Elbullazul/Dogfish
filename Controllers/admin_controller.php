@@ -1,22 +1,35 @@
 <?php
 
-class admin_controller extends core_controller {
-  function set_access_level() {
-    $this->ACCESS_LEVEL = 2;
-  }
+class admin_controller extends user_controller
+{
+    protected function set_access_policies()
+    {
+        $this->ACCESS_LEVEL = 2;
+    }
 
-  function name() {
-    return 'admin';
-  }
+    function actions()
+    {
+        return array(
+            'dashboard',
+            'users'
+        );
+    }
 
-  // authorized controller actions
-  function actions() {
-    $this->gen_view('actions');
-  }
+    function main_view()
+    {
+        $this->dashboard();
+    }
 
-  function users() {
-    $this->gen_view('users');
-  }
+    function name()
+    {
+        return 'admin';
+    }
+
+    // authorized controller actions
+    function users()
+    {
+        $this->gen_view('users');
+    }
 }
 
 ?>

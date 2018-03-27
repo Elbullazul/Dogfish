@@ -1,10 +1,12 @@
 <?php
 
-class grade_controller extends core_controller {
+class grade_controller extends core_controller
+{
 
-  function name() {
-    return 'grades';
-  }
+    function name()
+    {
+        return 'grades';
+    }
 }
 
 ?>

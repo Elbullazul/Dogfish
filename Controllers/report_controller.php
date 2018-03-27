@@ -1,10 +1,12 @@
 <?php
 
-class report_controller extends core_controller {
+class report_controller extends core_controller
+{
 
-  function name() {
-    return 'report';
-  }
+    function name()
+    {
+        return 'report';
+    }
 }
 
 ?>

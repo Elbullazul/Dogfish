@@ -1,17 +1,36 @@
 <?php
-  class connection {
+
+class connection
+{
     private static $instance = NULL;
 
-    private function __construct() {}
-
-    private function __clone() {}
-
-    public static function getInstance() {
-      if (!isset(self::$instance)) {
-        $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-        self::$instance = new PDO('mysql:host=localhost;dbname=dogfish_db', 'root', 'root', $pdo_options);
-      }
-      return self::$instance;
+    private function __construct()
+    {
     }
-  }
+
+    private function __clone()
+    {
+    }
+
+    // public static function getInstance() {
+    //   if (!isset(self::$instance)) {
+    //     $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+    //     $pdo_options[PDO::ATTR_EMULATE_PREPARES] = false;
+    //     self::$instance = new PDO('mysql:host=localhost;dbname=dogfish_db', 'root', 'root', $pdo_options);
+    //   }
+    //   return self::$instance;
+    // }
+
+    static function getInstance()
+    {
+        if (!isset(self::$instance)) {
+            $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+            $pdo_options[PDO::ATTR_EMULATE_PREPARES] = false;
+
+            self::$instance = new PDO('mysql:host=localhost;dbname=dogfish_db', 'root', '', $pdo_options);
+        }
+        return self::$instance;
+    }
+}
+
 ?>
