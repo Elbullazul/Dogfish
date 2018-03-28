@@ -1,36 +1,61 @@
 <?php
 
-use models\user;
-use entities\user_entity;
+use Entities\user_type_entity;
 
-class user_type_repository
+class user_type_repository extends repository
 {
-
     function find($_model)
     {
-
-    }
-
-    function find_by_username($_username, $_hash)
-    {
         $Cnn = connection::getInstance();
-        $cmd = 'SELECT * FROM users
-            WHERE users.username = :username
-            AND users.password = :hash';
+        $cmd = 'SELECT
+              type_id,
+              access_level
+            FROM user_types
+            WHERE user_types.type_id = :type_id';
 
         $user_data = $Cnn->prepare($cmd);
 
-        $user_data->bindValue('username', $_username, PDO::PARAM_STR);
-        $user_data->bindValue('hash', $_hash, PDO::PARAM_STR);
+        $user_data->bindValue('type_id', $_type_id, PDO::PARAM_STR);
+        $user_data->setFetchMode(PDO::FETCH_CLASS, $this->entity, array());
         $user_data->execute();
+        $user = $user_data->fetch();
 
-        $user = new user_entity();
-
-        foreach ($data as $field => $value) {
-            $user->$field = $value;
+        if (!$user) {   // query returned NULL
+            $user = new user_entity();
         }
 
         return $user;
+    }
+
+    function find_by_id($_type_id)
+    {
+        $Cnn = connection::getInstance();
+        $cmd = 'SELECT
+              type_id,
+              access_level,
+              description,
+              modified_by,
+              date_created,
+              date_modified
+            FROM user_types
+            WHERE user_types.type_id = :type_id';
+
+        $user_data = $Cnn->prepare($cmd);
+
+        $user_data->bindValue('type_id', $_type_id, PDO::PARAM_STR);
+        $user_data->setFetchMode(PDO::FETCH_CLASS, $this->entity, array());
+        $user_data->execute();
+        $user_type = $user_data->fetch();
+
+        $user_data = $Cnn->prepare($cmd);
+
+        var_dump($user_type);
+
+        if (!$user_type) {   // query returned NULL
+            $user_type = new user_entity();
+        }
+
+        return $user_type;
     }
 
     function save($_model)
@@ -38,7 +63,7 @@ class user_type_repository
 
     }
 
-    function update($_model)
+    function update($_model, $_new_model)
     {
 
     }
@@ -46,6 +71,10 @@ class user_type_repository
     function destroy($_model)
     {
 
+    }
+
+    protected function entity() {
+        $this->entity = user_type_entity::class;
     }
 }
 

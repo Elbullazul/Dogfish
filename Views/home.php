@@ -6,7 +6,7 @@
     <div class="container-fluid text-center">
         <p>Dogfish is a free school management system ready to be deployed for your educational system.</p>
         <button class="btn"><a
-                    href="<?= link_manager::get_link('login'); ?>"><?= label_manager::get_label("@UI03"); ?></a>
+                    href="<?= links::get_link('login'); ?>"><?= labels::get_label("@UI03"); ?></a>
         </button>
     </div>
 </div>

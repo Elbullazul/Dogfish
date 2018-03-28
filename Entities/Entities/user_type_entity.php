@@ -2,7 +2,7 @@
 
 namespace Entities;
 
-class user_type_entity extends entity
+class user_type_entity extends Entity
 {
     private $type_id;
     private $access_level;
@@ -32,6 +32,17 @@ class user_type_entity extends entity
         return $this->description;
     }
 
+    function properties()
+    {
+        return array(
+            "type_id" => $this->type_id,
+            "access_level" => $this->access_level,
+            "description" => $this->description,
+            "date_created" => $this->date_created,
+            "date_modified" => $this->date_modified,
+            "modified_by" => $this->modified_by
+        );
+    }
 }
 
 ?>

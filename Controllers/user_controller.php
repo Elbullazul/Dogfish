@@ -1,7 +1,7 @@
 <?php
 
-use utils\path_util;
-use utils\session_util;
+use Utils\path_util;
+use Utils\session_util;
 
 use Models\users;
 
@@ -44,6 +44,13 @@ class user_controller extends core_controller
             'profile' => '@UI10',
             'settings' => '@UI17',
             'logout' => '@UI11'
+        );
+    }
+
+    function sidebar_actions()
+    {
+        return array(
+
         );
     }
 

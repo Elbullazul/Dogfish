@@ -23,16 +23,16 @@ abstract class core_controller
 
     function __construct()
     {
-        $this->ROOT = __DIR__ . '\..';
-        $this->VIEWS = __DIR__ . '\..\Views';
-        $this->CONTROLLERS = __DIR__ . '\..\Controllers';
-        $this->MODELS = __DIR__ . '\..\Models';
+        $this->ROOT         = __DIR__ . '\..';
+        $this->VIEWS        = __DIR__ . '\..\Views';
+        $this->CONTROLLERS  = __DIR__ . '\..\Controllers';
+        $this->MODELS       = __DIR__ . '\..\Models';
         $this->REPOSITORIES = __DIR__ . '\..\Repositories';
-        $this->TEMPLATES = __DIR__ . '\..\Views\Templates';
-        $this->ENTITIES = __DIR__ . '\..\'Entities';
-        $this->GLOBAL = __DIR__ . '\..\Global';
-        $this->PARTS = __DIR__ . '\..\Views\Templates\Parts';
-        $this->RESOURCES = __DIR__ . '\..\Resources';
+        $this->TEMPLATES    = __DIR__ . '\..\Views\Templates';
+        $this->ENTITIES     = __DIR__ . '\..\'Entities';
+        $this->GLOBAL       = __DIR__ . '\..\Global';
+        $this->PARTS        = __DIR__ . '\..\Views\Templates\Parts';
+        $this->RESOURCES    = __DIR__ . '\..\Resources';
 
         $this->set_access_policies();
     }
@@ -44,14 +44,14 @@ abstract class core_controller
 
     function gen_view($_view)
     {
+        // $path is used in master template to include the file
         $path = path_util::build($this->VIEWS, $_view . '.php');
-        // include master template
         require_once path_util::build($this->TEMPLATES, 'master.php');
     }
 
     function gen_empty_view($_view)
     {
-        // skip template
+        // skip template, for transition pages (authenticate, logout)
         require_once path_util::build($this->VIEWS, $_view . '.php');
     }
 
@@ -68,7 +68,7 @@ abstract class core_controller
             $repo = $_repository . '_repository.php';
             return new $repo();
         } else {
-            throw new Exception(label_manager::get_label('@SYS02'), 1);
+            throw new Exception(labels::get_label('@SYS02'), 1);
         }
     }
 
@@ -95,7 +95,7 @@ abstract class core_controller
                 session_util::set($key, $value);
             }
         }
-        header("Location: " . link_manager::get_link($_view));
+        header("Location: " . links::get_link($_view));
     }
 
     function invoke($action, $args = array())
@@ -103,7 +103,7 @@ abstract class core_controller
         if (method_exists($this, $action) && in_array($action, $this->actions())) {
             call_user_func_array(array($this, $action), array($args));
         } else {
-            $this->gen_error_view(label_manager::get_label('@SYS01'));
+            $this->gen_error_view(labels::get_label('@SYS01'));
         }
     }
 

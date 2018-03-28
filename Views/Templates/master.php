@@ -1,9 +1,9 @@
-<?php use utils\path_util; ?>
+<?php use Utils\path_util; ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title><?= label_manager::get_label('@UI01') ?></title>
+    <title><?= labels::get_label('@UI01') ?></title>
     <meta charset="UTF-8">
 
     <!-- JQuery 3.3.1 -->

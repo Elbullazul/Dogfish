@@ -32,13 +32,6 @@ abstract class Entity
         return $this->date_modified;
     }
 
-    function fill(array $_data)
-    {
-        foreach ($_data as $field => $value) {
-            $this->$field = $value;
-        }
-    }
-
     abstract function properties();
 }
 

@@ -75,11 +75,6 @@ class user_repository extends repository
         return false;
     }
 
-    protected function model()
-    {
-        $this->model = user_model::class;
-    }
-
     protected function entity()
     {
         $this->entity = user_entity::class;

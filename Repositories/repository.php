@@ -7,11 +7,8 @@ abstract class repository
 
     function __construct()
     {
-        $this->model();
         $this->entity();
     }
-
-    abstract protected function model();
 
     abstract protected function entity();
 

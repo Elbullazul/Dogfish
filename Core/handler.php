@@ -1,8 +1,7 @@
 <?php
 
-use \managers\user_manager;
-use \managers\entity_manager;
-use \managers\user_type_manager;
+use Managers\user_manager;
+use Managers\user_type_manager;
 
 abstract class handler
 {

@@ -1,6 +1,6 @@
 <?php
 
-abstract class label_manager
+abstract class labels
 {
     static $locale = 'en_us';
 

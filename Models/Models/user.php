@@ -4,7 +4,7 @@ namespace Models;
 
 class user extends model
 {
-    private $type;
+    private $user_type;
     private $user_id;
     private $username;
     private $password;
@@ -12,18 +12,18 @@ class user extends model
     public function properties()
     {
         return array(
-            "type" => $this->type,
+            "user_type" => $this->user_type,
             "user_id" => $this->user_id,
             "username" => $this->username,
             "password" => $this->password
         );
     }
 
-    function type($_type = NULL)
+    function user_type($_user_type = NULL)
     {
-        if (!is_null($_type))
-            $this->type = $_type;
-        return $this->type;
+        if (!is_null($_user_type))
+            $this->user_type = $_user_type;
+        return $this->user_type;
     }
 
     function user_id($_user_id = NULL)
@@ -50,7 +50,7 @@ class user extends model
     function empty()
     {
         if (
-            empty($this->type) &&
+            empty($this->user_type) &&
             empty($this->user_id) &&
             empty($this->username) &&
             empty($this->password)) {
@@ -63,7 +63,7 @@ class user extends model
     function equals($_object)
     {
         if (
-            $this->type == $_object->type() &&
+            $this->user_type == $_object->user_type() &&
             $this->user_id == $_object->user_id() &&
             $this->username == $_object->username() &&
             $this->password == $_object->password()) {

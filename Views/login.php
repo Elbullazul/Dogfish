@@ -5,28 +5,28 @@
 </div>
 <div class="container col-md-4">
 
-    <form class="form-signin" id="form-signin" method="Post" action="<?= link_manager::get_link('authenticate'); ?>">
-        <h2 class="form-signin-heading"><?= label_manager::get_label('@UI03'); ?></h2>
+    <form class="form-signin" id="form-signin" method="Post" action="<?= links::get_link('authenticate'); ?>">
+        <h2 class="form-signin-heading"><?= labels::get_label('@UI03'); ?></h2>
         <label for="inputEmail" class="sr-only">
-            <?= label_manager::get_label('@UI08'); ?>
+            <?= labels::get_label('@UI08'); ?>
         </label>
         <input type="text" id="inputUser" name="inputUser" class="form-control"
-               placeholder="<?= label_manager::get_label('@UI08'); ?>" required="" autofocus="">
+               placeholder="<?= labels::get_label('@UI08'); ?>" required="" autofocus="">
         <div class='spacer-1'></div>
         <label for="inputPassword" class="sr-only">
-            <?= label_manager::get_label('@UI05'); ?>
+            <?= labels::get_label('@UI05'); ?>
         </label>
         <input type="password" id="inputPassword" name="inputPassword" class="form-control"
-               placeholder="<?= label_manager::get_label('@UI05'); ?>" required="">
+               placeholder="<?= labels::get_label('@UI05'); ?>" required="">
         <div class='spacer-1'></div>
         <div class="checkbox">
             <label>
-                <input type="checkbox" value="remember-me"> <?= label_manager::get_label('@UI06'); ?>
+                <input type="checkbox" value="remember-me"> <?= labels::get_label('@UI06'); ?>
             </label>
         </div>
         <div class='spacer-1'></div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">
-            <?= label_manager::get_label('@UI07'); ?>
+            <?= labels::get_label('@UI07'); ?>
         </button>
     </form>
 

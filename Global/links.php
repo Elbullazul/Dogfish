@@ -1,6 +1,6 @@
 <?php
 
-abstract class link_manager
+abstract class links
 {
     static function get_link($_view)
     {

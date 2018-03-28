@@ -1,6 +1,8 @@
 <?php
 
-use factories\user_factory;
+use Utils\session_util;
+use Factories\user_factory;
+use Factories\user_type_factory;
 
 abstract class security_service
 {
@@ -33,12 +35,20 @@ abstract class security_service
         }
     }
 
-    public static function validate_credentials($_user, $_password)
+    public static function validate_credentials($_username, $_password)
     {
         // pool repo for user
-        $usr = user_factory::find_by_username($_user);
-        if (!$usr->empty() && $usr->password() == $_password) {
-            return true;
+        $user = user_factory::find_by_username($_username);
+        if (!$user->empty() && $user->password() == $_password) {
+            $user_type = user_type_factory::find_by_id($user->user_type());
+            if (!$user_type->empty() && $user_type->type_id() == $user->user_type()) {
+                session_util::set('user', $_username);
+                session_util::set('user-privileges', $user_type->access_level());
+
+                return true;
+            } else {
+                return false;
+            }
         } else {
             return false;
         }

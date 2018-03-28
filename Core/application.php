@@ -1,8 +1,6 @@
 <?php
 
-// usings
-use utils\url_util;
-use utils\get_util;
+use Utils\url_util;
 
 class application
 {
@@ -12,10 +10,9 @@ class application
         session_start();
 
         // setup application language
-        label_manager::set_locale();
+        labels::set_locale();
 
-        $controller = 'public';
-        $action = 'login';
+        // get web page requested
         $parameters = url_util::parse();
 
         if (file_exists('Controllers/' . $parameters[0] . '_controller.php')) {
@@ -30,10 +27,10 @@ class application
             }
         } elseif ($parameters[0] == "") {
             $app_controller = new public_controller();
-            $app_controller->home();
+            $app_controller->main_view();
         } else {
             $app_controller = new public_controller();
-            $app_controller->gen_error_view(label_manager::get_label('@SYS01'));
+            $app_controller->gen_error_view(labels::get_label('@SYS01'));
         }
     }
 
