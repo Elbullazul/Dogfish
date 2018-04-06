@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html>
 <body>
-<h1>Oopsie woopsie!</h1>
-<p>Error: <?php echo $_error ?></p>
+<div class="spacer-30"></div>
+<div class="container-fluid text-center">
+    <h1>Oopsie woopsie!</h1>
+    <br/>
+    <br/>
+    <p>Error: <?php echo $_error ?></p>
+    <br/>
+    <button onclick="history.go(-1);">Back</button>
+</div>
 </body>
 </html>

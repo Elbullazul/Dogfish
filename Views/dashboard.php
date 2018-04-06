@@ -1,4 +1,4 @@
-<?php require_once $this->get_part_path('message-processor.php'); ?>
+<?php require_once $this->get_part_path('flashes.php'); ?>
 
 <div class="row container-fluid h-100">
     <?php

@@ -1,10 +1,10 @@
 <?php
 
-class public_controller extends core_controller
+class public_controller extends controller
 {
-    protected function set_access_policies()
+    protected function configure()
     {
-        $this->ACCESS_LEVEL = 0;
+        $this->ACCESS_LEVEL = security_service::$PUBLIC;
     }
 
     function actions()
@@ -12,7 +12,6 @@ class public_controller extends core_controller
         return array(
             'home',
             'login',
-            'logout',
             'authenticate'
         );
     }
@@ -39,11 +38,6 @@ class public_controller extends core_controller
             $this->redirect('dashboard');
         else
             $this->gen_view('login');
-    }
-
-    function logout()
-    {
-        $this->gen_view('logout');
     }
 
     function authenticate()

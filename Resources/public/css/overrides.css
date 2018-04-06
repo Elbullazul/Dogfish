@@ -76,40 +76,47 @@ button a:active {
 }
 
 /* custom spacers */
-.spacer-1 {
+.spacer-5 {
     padding-top: 5px;
     padding-bottom: 5px;
 }
 
-.spacer-2 {
+.spacer-10 {
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
-.spacer-3 {
+.spacer-15 {
     padding-top: 15px;
     padding-bottom: 15px;
 }
 
-.red {
+.spacer-30 {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.alert {
+    border-radius: 0;
+    border: none;
+}
+
+.alert-danger {
     color: #fff !important;
     background-color: #ba2222 !important;
 }
 
-.green {
+.alert-success {
     color: #fff !important;
     background-color: #22ba22 !important;
 }
 
-.yellow {
+.alert-warning {
     color: #fff !important;
     background-color: #eeba22 !important;
 }
 
-.msg {
-    width: 100%;
+.alert-info {
     color: #000;
-    background-color: #f1f1f1;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    background-color: #dedede;
 }

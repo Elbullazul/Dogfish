@@ -1,5 +1,7 @@
 <?php
 
+use Utils\path_util;
+
 abstract class labels
 {
     static $locale = 'en_us';
@@ -8,7 +10,7 @@ abstract class labels
     {
 
         $text = "";
-        $file = 'Labels/xml/' . self::$locale . '.xml';
+        $file = 'Resources/xml/labels/'.self::$locale.'.xml';
         $xml = simplexml_load_file($file);
 
         foreach ($xml as $node) {
@@ -30,7 +32,7 @@ abstract class labels
     static function set_locale()
     {
         $current_locale = self::get_locale();
-        if (file_exists('Labels/xml/' . $current_locale . '.xml')) {
+        if (file_exists('Resources/xml/labels/'.$current_locale.'.xml')) {
             self::$locale = $current_locale;
         }
     }

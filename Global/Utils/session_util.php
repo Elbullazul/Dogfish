@@ -6,12 +6,12 @@ abstract class session_util
 {
     static function set($_key, $_value)
     {
-        $_SESSION[$_key] = htmlentities($_value);
+        $_SESSION[$_key] = $_value;
     }
 
     static function get($_key)
     {
-        return isset($_SESSION[$_key]) ? htmlentities($_SESSION[$_key]) : "";
+        return isset($_SESSION[$_key]) ? $_SESSION[$_key] : "";
     }
 
     static function destroy($_key)

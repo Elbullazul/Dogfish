@@ -13,7 +13,8 @@ abstract class data_service
         return $_model;
     }
 
-    static function to_entity($_model, $_entity) {
+    static function to_entity($_model, $_entity)
+    {
         foreach ($_model->properties() as $field => $value) {
             if (array_key_exists($field, $_entity->properties())) {
                 $_entity->$field($value);

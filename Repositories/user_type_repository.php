@@ -47,10 +47,6 @@ class user_type_repository extends repository
         $user_data->execute();
         $user_type = $user_data->fetch();
 
-        $user_data = $Cnn->prepare($cmd);
-
-        var_dump($user_type);
-
         if (!$user_type) {   // query returned NULL
             $user_type = new user_entity();
         }

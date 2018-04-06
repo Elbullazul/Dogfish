@@ -1,0 +1,71 @@
+<links>
+    <!-- PUBLIC -->
+    <link>
+        <key>login</key>
+        <path>/public/login</path>
+    </link>
+    <link>
+        <key>authenticate</key>
+        <path>/public/authenticate</path>
+    </link>
+    <link>
+        <key>logout</key>
+        <path>/user/logout</path>
+    </link>
+    <link>
+        <key>error</key>
+        <path>/public/error</path>
+    </link>
+    <!-- USER -->
+    <!-- To authorize actions across controllers, user is replaced with corresponding controller at runtime -->
+    <link>
+        <key>profile</key>
+        <path>/user/profile</path>
+    </link>
+    <link>
+        <key>activity</key>
+        <path>/user/activity</path>
+    </link>
+    <link>
+        <key>dashboard</key>
+        <path>/user/dashboard</path>
+    </link>
+    <link>
+        <key>settings</key>
+        <path>/user/settings</path>
+    </link>
+    <!-- GRADES -->
+    <link>
+        <key>grade</key>
+        <path>/manage/grades</path>
+    </link>
+    <!-- REPORT -->
+    <link>
+        <key>reports</key>
+        <path>/manage/reports</path>
+    </link>
+    <!-- SCHEDULE -->
+    <link>
+        <key>schedule</key>
+        <path>/manage/schedule</path>
+    </link>
+    <!-- CALENDAR -->
+    <link>
+        <key>calendar</key>
+        <path>/manage/calendar</path>
+    </link>
+    <!-- ADMIN -->
+    <link>
+        <key>actions</key>
+        <path>/admin/actions</path>
+    </link>
+    <link>
+        <key>users</key>
+        <path>/admin/users</path>
+    </link>
+    <!-- DEFAULT -->
+    <link>
+        <key>default</key>
+        <path>/public/home</path>
+    </link>
+</links>

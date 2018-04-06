@@ -51,10 +51,10 @@ class grade extends model
     function empty()
     {
         if (
-        empty($this->evaluation_id &&
-            empty($this->student_id &&
-                empty($this->points &&
-                    empty($this->comment)) {
+            empty($this->evaluation_id) &&
+            empty($this->student_id) &&
+            empty($this->points) &&
+            empty($this->comment)) {
             return true;
         } else {
             return false;

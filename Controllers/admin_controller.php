@@ -2,17 +2,11 @@
 
 class admin_controller extends user_controller
 {
-    protected function set_access_policies()
+    protected function configure()
     {
-        $this->ACCESS_LEVEL = 2;
-    }
-
-    function actions()
-    {
-        return array(
-            'dashboard',
-            'users'
-        );
+        $this->ACCESS_LEVEL = security_service::$ADMINISTRATOR;
+        $this->actions = $this->base_actions();
+        array_push($this->actions, 'users');    // extend user actions
     }
 
     function main_view()

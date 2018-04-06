@@ -15,7 +15,8 @@ if (isset($_user) && isset($_key)) {
     if (security_service::validate_credentials($_user, $_key)) {
         $this->redirect('dashboard');
     } else {
-        $this->redirect('login', array('msg' => '@UI18'));
+        flash_service::set('@UI18', flash_service::$WARNING, true);
+        $this->redirect('login');
     }
 } else {
     $this->redirect('login');

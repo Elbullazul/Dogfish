@@ -5,17 +5,21 @@ use Utils\session_util;
 
 use Models\users;
 
-class user_controller extends core_controller
+// TODO: Abstract this class & instantiate controllers based on access level
+class user_controller extends controller
 {
-    protected function set_access_policies()
+    protected $actions;
+
+    protected function configure()
     {
-        $this->ACCESS_LEVEL = 1;
+        $this->ACCESS_LEVEL = security_service::$TEACHER;
+        $this->actions = $this->base_actions();
     }
 
     function gen_view($_view)
     {
         // path for master import
-        $path = path_util::build($this->VIEWS, $_view . '.php');
+        $path = path_util::build($this->VIEWS, $_view.'.php');
 
         // check user access rights
         switch (security_service::validate_access($this)) {
@@ -27,7 +31,8 @@ class user_controller extends core_controller
                 $this->redirect('login');
                 break;
             case security_service::$INSUFFICIENT_PRIVILEGES:
-                $this->redirect('dashboard', array('error_msg' => '@SYS03'));
+                flash_service::set('@SYS03', flash_service::$DANGER);
+                $this->redirect('dashboard');
                 break;
         }
     }
@@ -50,18 +55,28 @@ class user_controller extends core_controller
     function sidebar_actions()
     {
         return array(
-
+            'dashboard' => '@UI12',
+            'reports' => '@UI13',
+            'grade' => '@UI14',
+            'schedule' => '@UI15',
+            'calendar' => '@UI16'
         );
     }
 
-    function actions()
+    protected function base_actions()
     {
         return array(
             'dashboard',
             'activity',
             'profile',
-            'settings'
+            'settings',
+            'logout'
         );
+    }
+
+    function actions()
+    {
+        return $this->actions;
     }
 
     function main_view()
@@ -95,6 +110,10 @@ class user_controller extends core_controller
         $this->gen_view('settings');
     }
 
+    function logout()
+    {
+        $this->gen_empty_view('logout');
+    }
 }
 
 ?>

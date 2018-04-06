@@ -6,7 +6,7 @@ use Managers\user_type_manager;
 use Models\user_type;
 use Managers\manager;
 
-class user_type_factory
+class user_type_factory extends factory
 {
 
     static function find($_model)
